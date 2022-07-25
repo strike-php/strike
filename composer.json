@@ -1,0 +1,35 @@
+{
+    "name": "strike/strike",
+    "description": "Strike Framework",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "strike/framework": "dev-main"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5.21"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
