@@ -1,0 +1,14 @@
+<?php
+
+/** @var \Strike\Framework\Core\Application $app */
+$app = require __DIR__ . '/bootstrap/app.php';
+
+/** @var \Strike\Framework\Cli\CliKernel $kernel */
+$kernel = $app->get(\Strike\Framework\Cli\CliKernel::class);
+
+$statusCode = $kernel->handle(
+    new \Symfony\Component\Console\Input\ArgvInput(),
+    new \Symfony\Component\Console\Output\ConsoleOutput()
+);
+
+exit($statusCode);

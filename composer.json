@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "strike/framework": "dev-main"
+        "strike/framework": "^0.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.21"
