@@ -1,0 +1,19 @@
+<?php
+
+use Strike\Framework\Cli\CliKernel;
+use Strike\Framework\Core\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
+
+/** @var Application $app */
+$app = require dirname(__DIR__) . '/etc/bootstrap.php';
+
+/** @var CliKernel $kernel */
+$kernel = $app->get(CliKernel::class);
+
+$statusCode = $kernel->handle(
+    new ArgvInput(),
+    new ConsoleOutput()
+);
+
+exit($statusCode);

@@ -1,12 +1,16 @@
 <?php
 
-/** @var \Strike\Framework\Core\Application $app */
-$app = require dirname(__DIR__) . '/bootstrap/app.php';
+use Strike\Framework\Core\Application;
+use Strike\Framework\Http\HttpKernel;
+use Symfony\Component\HttpFoundation\Request;
 
-/** @var \Strike\Framework\Http\HttpKernel $kernel */
-$kernel = $app->get(\Strike\Framework\Http\HttpKernel::class);
+/** @var Application $app */
+$app = require dirname(__DIR__) . '/etc/bootstrap.php';
 
-$response = $kernel->handle(\Symfony\Component\HttpFoundation\Request::createFromGlobals());
+/** @var HttpKernel $kernel */
+$kernel = $app->get(HttpKernel::class);
+
+$response = $kernel->handle(Request::createFromGlobals());
 
 $response->send();
 
